@@ -22,11 +22,11 @@ Thanks to GraphQL just get the data you need or want.
 ### Badi
 ```typescript
 type Badi {
-    id: int
-    name: string
-    location: string
-    plz: string
-    canton: string
+    id: Int
+    name: String
+    location: String
+    plz: String
+    canton: String
     becken: [Becken]
 }
 ```
@@ -34,9 +34,9 @@ type Badi {
 ### Becken
 ```typescript
 type Becken {
-    id: int
-    name: string
-    temp: string,
-    status: string
+    id: Int
+    name: String
+    temp: String,
+    status: String
 }
 ```
