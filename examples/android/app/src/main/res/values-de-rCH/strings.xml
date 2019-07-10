@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BadiApp</string>
+    <string name="main_overview">Übrsicht</string>
+    <string name="orderKanton">Nach Kantön sortiere</string>
+    <string name="orderName">Nach Nämä sortiere</string>
+    <string name="orderOrt">Nach Ort sortiere</string>
+    <string name="pool">Pool</string>
+    <string name="temperature">Temperatur: </string>
+    <string name="typ">Art vom Becki:</string>
+    <string name="status">Status:</string>
+</resources>
