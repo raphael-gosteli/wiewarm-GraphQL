@@ -98,7 +98,7 @@ const typeDefs = gql`
     # The status of the becken (eg. offen, geschlossen)
     status: String
 
-    typ: String
+    type: String
 
     date: String
 
