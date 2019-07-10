@@ -12,28 +12,42 @@ class WieWarmAPI extends RESTDataSource {
   }
 
   /**
-   * The getAllBadis method loads all badis from the endpoint and parses them in
+   * The getAllBad method loads all bad from the endpoint and parses them in
    * the right format.
    */
-  async getAllBadis() {
+  async getAllBad() {
     let response = await this.get('bad.json?search=0');
     response = JSON.parse(response);
-    return Array.isArray(response) ? response.map(badi => this.badiReducer(badi)) : []; // check if the response is actually a array
+    return Array.isArray(response) ? response.map(bad => this.badReducer(bad)) : []; // check if the response is actually a array
   }
 
   /**
-   * The badiReducer method reduces the data given from the API endpoint to the data needed by the
-   * defined GraphQL schema.
-   * @param {Object} badi 
+   * Get a bad by its id
    */
-  badiReducer(badi) {
+  async getBad(id){
+    let response = await this.get(`bad.json/${id}`);
+    response = JSON.parse(response);
+    return this.badReducer(response);
+
+  }
+
+  /**
+   * The badReducer method reduces the data given from the API endpoint to the data needed by the
+   * defined GraphQL schema.
+   * @param {Object} bad
+   */
+  badReducer(bad) {
     return {
-      id: badi.badid || 0,
-      name: badi.badname || "",
-      canton: badi.kanton || "",
-      plz: badi.plz || "",
-      location: badi.ort || "",
-      becken: this.beckenReducer(badi.becken),
+      id: bad.badid || 0,
+      name: bad.badname || "",
+      address1: bad.adresse1 || "",
+      address2: bad.adresse2 || "",
+      canton: bad.kanton || "",
+      plz: bad.plz || "",
+      location: bad.ort || "",
+      long: bad.long || null,
+      lat: bad.lat || null,
+      becken: this.beckenReducer(bad.becken),
     };
   }
 
@@ -54,7 +68,10 @@ class WieWarmAPI extends RESTDataSource {
         id: element.beckenid,
         name: element.beckenname,
         temp: element.temp,
-        status: element.status
+        status: element.status,
+        type: element.typ,
+        date: element.date,
+        datePretty: element.date_pretty
       })
     }
 
@@ -80,17 +97,26 @@ const typeDefs = gql`
 
     # The status of the becken (eg. offen, geschlossen)
     status: String
+
+    typ: String
+
+    date: String
+
+    datePretty: String
   }
 
-  # Badi
-  type Badi {
-    # The id of the badi
+  # Bad
+  type Bad {
+    # The id of the bad
     id: Int
 
-    # The name of the badi
+    # The name of the bad
     name: String
 
-    # The canton where the badi is located
+    address1: String
+    address2: String
+
+    # The canton where the bad is located
     canton: String
 
     # The postal code of the location
@@ -99,13 +125,17 @@ const typeDefs = gql`
     # The location
     location: String
 
+    long: Int
+    lat: Int
+
     # The list of becken
     becken: [Becken]
   }
 
   # The possible queries (query)
   type Query {
-    badis: [Badi]
+    bads: [Bad]
+    bad(id: ID!): Bad
   }
 `;
 
@@ -114,9 +144,12 @@ const typeDefs = gql`
  */
 const resolvers = {
   Query: {
-    badis: async (_source, _args, { dataSources }) => {
-      return dataSources.wieWarmAPI.getAllBadis();
+    bads: async (_source, _args, { dataSources }) => {
+      return dataSources.wieWarmAPI.getAllBad();
     },
+    bad: async (_source, { id }, {dataSources}) => {
+      return dataSources.wieWarmAPI.getBad(id);
+    }
   },
 };
 
