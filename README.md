@@ -10,8 +10,7 @@ Thanks to GraphQL just get the data you need or want.
 ## Getting started
 
 1. Learn the schema by playing with the data in the [Playground](https://wiewarm-graphql.raphaelgosteli.now.sh/).
-2. Choose a (GraphQL) client implementation from the [GraphQL Clients list](https://graphql.org/code/#graphql-clients). The server/wrapper is built using [Apollo](https://www.apollographql.com/). You might also use an [Apollo Client](https://www.apollographql.com/docs/react/#prefer-a-non-react-platform) for good result.
-4. Have a look at the [client implementations](#client-implementations).
+2.   Have a look at the [client implementations](#client-implementations) or choose a client implementation from the [GraphQL clients implementations](https://graphql.org/code/#graphql-clients).
 3. Let's go! 🤗
 
 
