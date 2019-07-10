@@ -31,6 +31,12 @@ class WieWarmAPI extends RESTDataSource {
 
   }
 
+  async searchBad(query) {
+    let response = await this.get(`bad.json?search=${query}`);
+    response = JSON.parse(response);
+    return Array.isArray(response) ? response.map(bad => this.badReducer(bad)) : []; // check if the response is actually a array
+  }
+
   /**
    * The badReducer method reduces the data given from the API endpoint to the data needed by the
    * defined GraphQL schema.
@@ -136,6 +142,7 @@ const typeDefs = gql`
   type Query {
     bads: [Bad]
     bad(id: ID!): Bad
+    search(query: String!): [Bad]
   }
 `;
 
@@ -149,6 +156,9 @@ const resolvers = {
     },
     bad: async (_source, { id }, {dataSources}) => {
       return dataSources.wieWarmAPI.getBad(id);
+    },
+    search: async (_source, { query }, {dataSources}) => {
+      return dataSources.wieWarmAPI.searchBad(query);
     }
   },
 };
