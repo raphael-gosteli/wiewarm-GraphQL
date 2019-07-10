@@ -19,6 +19,19 @@ Thanks to GraphQL just get the data you need or want.
 ### Queries
 
 #### Bad
+
+Search for a bad
+```typescript
+Query {
+  search(query: "Thun"){
+    id
+    name
+    location
+  }
+}
+```
+[Run in Playground →](https://wiewarm-graphql.raphaelgosteli.now.sh/?query=%7B%0A%20%20search%28query%3A%20%22Thun%22%29%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20location%0A%20%20%7D%0A%7D)
+
 Get the name, temperature and the prettified date of a bad by it's id.
 ```typescript
 Query {
@@ -115,13 +128,7 @@ Load the data into a template by iterating through the list of bad as shown in t
       </div>
     </div>
 </div>
-
-
 ```
-
-
-
-
 
 ## Schema
 
