@@ -1,0 +1,29 @@
+<div *ngIf="loading">
+  Loading...
+</div>
+<div *ngIf="error">
+  Error :(
+</div>
+<div class="bads">
+    <div *ngIf="bads">
+    <div *ngFor="let bad of bads">
+      <div class="bad">
+        <p class="bad-id">#{{bad.id}}</p>
+        <h2>{{bad.name}}</h2>
+        <p class="location">{{bad.location}}</p>
+
+        <table>
+            <tr>
+              <th>Becken</th>
+              <th>Temperatur</th> 
+            </tr>
+            <tr *ngFor="let becken of bad.becken">
+              <td>{{becken.name}}</td>
+              <td>{{becken.temp}}°C</td> 
+            </tr>
+          </table>
+      </div>
+      
+    </div>
+  </div>
+</div>
