@@ -11,7 +11,8 @@ Thanks to GraphQL just get the data you need or want.
 
 1. Learn the schema by playing with the data in the [Playground](https://wiewarm-graphql.raphaelgosteli.now.sh/).
 2.   Have a look at the [client implementations](#client-implementations) or choose a client implementation from the [GraphQL clients implementations](https://graphql.org/code/#graphql-clients).
-3. Let's go! 🤗
+3. Use the server url https://wiewarm-graphql.raphaelgosteli.now.sh/
+4. Let's go! 🤗
 
 
 ## Examples
