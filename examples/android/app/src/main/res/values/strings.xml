@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BadiApp</string>
+    <string name="main_overview">Overview</string>
+    <string name="orderKanton">Order by State</string>
+    <string name="orderName">Order by Name</string>
+    <string name="orderOrt">Order by Location</string>
+    <string name="pool">Pool</string>
+    <string name="temperature">Temperature:</string>
+    <string name="typ">Kind of water:</string>
+    <string name="status">Status:</string>
+</resources>

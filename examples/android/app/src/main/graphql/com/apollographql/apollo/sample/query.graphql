@@ -1,0 +1,13 @@
+query GetBad{
+    bads{
+        id
+        name
+        location
+        becken{
+            status
+            type
+            temp
+            datePretty
+        }
+    }
+}
