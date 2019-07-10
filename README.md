@@ -66,6 +66,10 @@ Query {
 
 ## Client implementations
 
+### Android
+
+Have a look at the [Android example →](examples/android) by [@wauchi](https://github.com/wauchi) using the [Apollo Android client](https://github.com/apollographql/apollo-android).
+
 ### Angular
 
 > No time? Have a look at the example project. [Angular example →](examples/angular/)
