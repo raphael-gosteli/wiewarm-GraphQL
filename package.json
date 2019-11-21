@@ -7,7 +7,7 @@
   "dependencies": {
     "apollo-server": "2.6.9",
     "graphql": "14.4.2",
-    "nodemon": "^1.17.5",
+    "nodemon": "^2.0.0",
     "apollo-datasource-rest": "0.5.1"
   }
 }
