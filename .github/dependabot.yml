@@ -1,0 +1,27 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: apollo-server
+    versions:
+    - 2.19.2
+    - 2.20.0
+    - 2.21.0
+    - 2.21.1
+    - 2.21.2
+    - 2.22.0
+    - 2.22.1
+    - 2.22.2
+  - dependency-name: apollo-datasource-rest
+    versions:
+    - 0.10.0
+    - 0.11.0
+    - 0.9.7
+  - dependency-name: graphql
+    versions:
+    - 14.7.0
